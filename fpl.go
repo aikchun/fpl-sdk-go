@@ -22,7 +22,7 @@ func Request(method string, url string, body io.Reader) (*http.Response, error) 
 		"User-Agent":   []string{"Golang_Lambda/1.0"},
 	}
 
-	r, err := client.Do(req)
+	return client.Do(req)
 }
 
 func GetSeason() (*BootstrapStatic, error) {
