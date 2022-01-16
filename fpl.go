@@ -2,16 +2,15 @@ package fpl
 
 import (
 	"encoding/json"
+	"fmt"
+	"io"
 	"net/http"
-	"os"
 )
 
-func GetSeason() (*BootstrapStatic, error) {
+func Request(method string, url string, body io.Reader) (*http.Response, error) {
 	client := http.Client{}
 
-	seasonUrl, _ := os.LookupEnv("SEASON_URL")
-
-	req, err := http.NewRequest("GET", seasonUrl, nil)
+	req, err := http.NewRequest(method, url, body)
 
 	if err != nil {
 		//Handle Error
@@ -24,6 +23,10 @@ func GetSeason() (*BootstrapStatic, error) {
 	}
 
 	r, err := client.Do(req)
+}
+
+func GetSeason() (*BootstrapStatic, error) {
+	r, err := Request("GET", "https://fantasy.premierleague.com/api/bootstrap-static", nil)
 
 	defer r.Body.Close()
 
@@ -32,6 +35,33 @@ func GetSeason() (*BootstrapStatic, error) {
 	}
 
 	var data BootstrapStatic
+
+	err = json.NewDecoder(r.Body).Decode(&data)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &data, err
+}
+
+func GetFixtures(eventId int) (*[]Fixture, error) {
+
+	fixturesUrl := "https://fantasy.premierleague.com/api/fixtures"
+
+	if eventId > 0 {
+		fixturesUrl = fmt.Sprintf("https://fantasy.premierleague.com/api/fixtures/?events=%d", eventId)
+	}
+
+	r, err := Request("GET", fixturesUrl, nil)
+
+	defer r.Body.Close()
+
+	if err != nil {
+		return nil, err
+	}
+
+	var data []Fixture
 
 	err = json.NewDecoder(r.Body).Decode(&data)
 
