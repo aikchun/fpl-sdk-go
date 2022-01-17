@@ -26,7 +26,7 @@ func Request(method string, url string, body io.Reader) (*http.Response, error) 
 }
 
 func GetSeason() (*BootstrapStatic, error) {
-	r, err := Request("GET", "https://fantasy.premierleague.com/api/bootstrap-static", nil)
+	r, err := Request("GET", "https://fantasy.premierleague.com/api/bootstrap-static/", nil)
 
 	defer r.Body.Close()
 
@@ -47,7 +47,7 @@ func GetSeason() (*BootstrapStatic, error) {
 
 func GetFixtures(eventId int) (*[]Fixture, error) {
 
-	fixturesUrl := "https://fantasy.premierleague.com/api/fixtures"
+	fixturesUrl := "https://fantasy.premierleague.com/api/fixtures/"
 
 	if eventId > 0 {
 		fixturesUrl = fmt.Sprintf("https://fantasy.premierleague.com/api/fixtures/?events=%d", eventId)
