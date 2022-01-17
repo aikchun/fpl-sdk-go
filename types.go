@@ -10,7 +10,7 @@ type Event struct {
 	Name              string `json:"name"`
 	DeadlineTimeEpoch int64  `json:"deadline_time_epoch"`
 	IsPrevious        bool   `json:"is_previous"`
-	IsCurrent         bool   `json:"is_previous"`
+	IsCurrent         bool   `json:"is_current"`
 	IsNext            bool   `json:"is_next"`
 }
 
