@@ -50,7 +50,7 @@ func GetFixtures(eventId int) (*[]Fixture, error) {
 	fixturesUrl := "https://fantasy.premierleague.com/api/fixtures/"
 
 	if eventId > 0 {
-		fixturesUrl = fmt.Sprintf("https://fantasy.premierleague.com/api/fixtures/?events=%d", eventId)
+		fixturesUrl = fmt.Sprintf("https://fantasy.premierleague.com/api/fixtures/?event=%d", eventId)
 	}
 
 	r, err := Request("GET", fixturesUrl, nil)
