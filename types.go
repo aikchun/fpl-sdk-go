@@ -6,7 +6,7 @@ type BootstrapStatic struct {
 }
 
 type Event struct {
-	ID                int64  `json:"id"`
+	ID                int    `json:"id"`
 	Name              string `json:"name"`
 	DeadlineTimeEpoch int64  `json:"deadline_time_epoch"`
 	IsPrevious        bool   `json:"is_previous"`
