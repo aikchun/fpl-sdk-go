@@ -32,8 +32,8 @@ func TestGetBootstrapStatic(t *testing.T) {
 		t.Errorf("Failed to decode BootstrapStatic API call into BootstrapStatic struct")
 	}
 
-	if data.Events[0].Id != 22 {
-		t.Errorf("Id should be 22, instead it is %d", data.Events[1].Id)
+	if data.Events[0].ID != 22 {
+		t.Errorf("ID should be 22, instead it is %d", data.Events[1].ID)
 	}
 
 	if data.Events[0].Name != "Gameweek 22" {
@@ -85,8 +85,8 @@ func TestGetFixtures(t *testing.T) {
 		t.Errorf("Number of Fixtures record should be 2")
 	}
 
-	if data[0].Id != 215 {
-		t.Errorf("First fixture Id should be 215, but instead it's %d", data[0].Id)
+	if data[0].ID != 215 {
+		t.Errorf("First fixture ID should be 215, but instead it's %d", data[0].ID)
 	}
 
 	if data[0].Event != 22 {
@@ -121,8 +121,8 @@ func TestGetFixtures(t *testing.T) {
 		t.Errorf("First fixture Started should be true, but instead it's %t", data[0].Started)
 	}
 
-	if data[1].Id != 216 {
-		t.Errorf("First fixture Id should be 216, but instead it's %d", data[1].Id)
+	if data[1].ID != 216 {
+		t.Errorf("First fixture ID should be 216, but instead it's %d", data[1].ID)
 	}
 
 	if data[1].Event != 22 {
