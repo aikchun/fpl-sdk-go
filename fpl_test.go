@@ -117,6 +117,10 @@ func TestGetFixtures(t *testing.T) {
 		t.Errorf("First fixture Minutes should be 90, but instead it's %d", data[0].Minutes)
 	}
 
+	if !data[0].Started {
+		t.Errorf("First fixture Started should be true, but instead it's %t", data[0].Started)
+	}
+
 	if data[1].Id != 216 {
 		t.Errorf("First fixture Id should be 216, but instead it's %d", data[1].Id)
 	}
@@ -147,6 +151,10 @@ func TestGetFixtures(t *testing.T) {
 
 	if data[1].Minutes != 70 {
 		t.Errorf("First fixture Minutes should be 70, but instead it's %d", data[1].Minutes)
+	}
+
+	if data[1].Started {
+		t.Errorf("First fixture Started should be false, but instead it's %t", data[1].Started)
 	}
 }
 

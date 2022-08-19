@@ -377,7 +377,7 @@ var FixtureResponsePayload = `[
 		"kickoff_time": "2022-01-15T15:00:00Z",
 		"minutes": 70,
 		"provisional_start_time": false,
-		"started": true,
+		"started": false,
 		"team_a": 18,
 		"team_a_score": 2,
 		"team_h": 14,

@@ -24,6 +24,7 @@ type Team struct {
 type Fixture struct {
 	Id         int  `json:"id"`
 	Event      int  `json:"event"`
+	Started    bool `json:"started"`
 	Finished   bool `json:"finished"`
 	TeamA      int  `json:"team_a"`
 	TeamH      int  `json:"team_h"`
